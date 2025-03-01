@@ -1,56 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:meditation/shared/presentation/custom_sizes.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
+import 'package:meditation/home/presentation/widgets/home_card.dart';
+import 'package:meditation/shared/routing/route_names.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
+  Widget build(BuildContext context) => Scaffold(
+        body: SafeArea(
           child: SingleChildScrollView(
-        child: Column(
-          children: [
-            GestureDetector(
-              onTap: () {
-                //
-              },
-              child: Container(
-                width: double.infinity,
-                height: 200,
-                margin: const EdgeInsets.all(CustomSizes.smallSize),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(CustomSizes.largeSize),
-                  color: Colors.blue.withOpacity(0.3),
+            child: Column(
+              children: [
+                HomeCard(
+                  onTap: () => context.go(RoutePaths.breathingGame),
+                  svgPath: 'assets/svgs/wind.svg',
+                  title: 'BREATHING GAME',
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(CustomSizes.mediumLargeSize),
-                  child: Stack(
-                    children: [
-                      Positioned(
-                        right: 30,
-                        child: SvgPicture.asset(
-                          'assets/svgs/wind.svg',
-                          width: 300,
-                          height: 150,
-                        ),
-                      ),
-                      const Text(
-                        'BREATHING GAME',
-                        style: TextStyle(
-                            fontSize: 32,
-                            fontWeight: FontWeight.w900,
-                            letterSpacing: -1),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              ],
             ),
-          ],
+          ),
         ),
-      )),
-    );
-  }
+      );
 }

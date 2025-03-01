@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:meditation/home/presentation/home_screen.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:meditation/shared/routing/router.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MeditationApp()));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MeditationApp extends StatelessWidget {
+  const MeditationApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomeScreen(),
-    );
-  }
+  Widget build(BuildContext context) => MaterialApp.router(
+        routerConfig: goRouter,
+      );
 }
