@@ -2,54 +2,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Knucklebones (debug)",
+            "name": "Meditation (debug)",
             "request": "launch",
             "type": "dart",
-            "program": "lib/main_knucklebones.dart",
             "args": [
-                "--flavor",
-                "knucklebones",
-                "--target",
-                "lib/main_knucklebones.dart",
                 "--debug"
             ]
         },
         {
-            "name": "Knucklebones (release)",
+            "name": "Meditation (release)",
             "request": "launch",
             "type": "dart",
-            "program": "lib/main_knucklebones.dart",
             "args": [
-                "--flavor",
-                "knucklebones",
-                "--target",
-                "lib/main_knucklebones.dart",
-                "--release"
-            ]
-        },
-        {
-            "name": "farkle (debug)",
-            "request": "launch",
-            "type": "dart",
-            "program": "lib/main_farkle.dart",
-            "args": [
-                "--flavor",
-                "farkle",
-                "--target",
-                "lib/main_farkle.dart",
-                "--debug"
-            ]
-        },
-        {
-            "name": "farkle (release)",
-            "request": "launch",
-            "type": "dart",
-            "program": "lib/main_farkle.dart",
-            "args": [
-                "--flavor",
-                "farkle",
-                "--target",
-                "lib/main_farkle.dart",
                 "--release"
             ]
         }
