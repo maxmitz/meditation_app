@@ -26,6 +26,11 @@ dependencies:
   freezed_annotation: ^2.2.0
   json_annotation: ^4.8.1
 
+  # audio player
+  just_audio: ^0.9.46
+  rxdart: ^0.28.0
+  audio_session: ^0.1.25
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -43,3 +48,4 @@ flutter:
 
   assets:
     - assets/svgs/
+    - assets/pngs/

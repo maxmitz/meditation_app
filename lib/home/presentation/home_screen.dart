@@ -17,6 +17,11 @@ class HomeScreen extends StatelessWidget {
                   svgPath: 'assets/svgs/wind.svg',
                   title: 'BREATHING GAME',
                 ),
+                HomeCard(
+                  onTap: () => context.go(RoutePaths.audioPlayer),
+                  svgPath: 'assets/svgs/meditation.svg',
+                  title: 'MEDITATION',
+                ),
               ],
             ),
           ),

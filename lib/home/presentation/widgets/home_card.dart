@@ -31,10 +31,11 @@ class HomeCard extends StatelessWidget {
               children: [
                 Positioned(
                   right: 30,
+                  bottom: 0,
                   child: SvgPicture.asset(
                     svgPath,
-                    width: 300,
-                    height: 150,
+                    width: 120,
+                    height: 120,
                   ),
                 ),
                 Text(
