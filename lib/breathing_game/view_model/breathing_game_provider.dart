@@ -13,13 +13,15 @@ class BreathingGameNotifier extends StateNotifier<BreathingGameState> {
           ),
         );
 
-  void resetResults() {
-    state = state.copyWith(results: []);
-  }
+  void resetResults() => state = state.copyWith(results: []);
 
-  void toggleShowResults() {
-    state = state.copyWith(showResults: !state.showResults);
-  }
+  void toggleShowResults() =>
+      state = state.copyWith(showResults: !state.showResults);
+
+  void setNumberOfBreathsToTapTwice(int value) => state = state.copyWith(
+        numberOfBreathsToTapTwice: value,
+        results: [],
+      );
 
   void singleTap() {
     final numberOfBreathsLeftToDoubleTap = state.results.isEmpty

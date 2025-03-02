@@ -28,9 +28,9 @@ class BreathingGameScreen extends ConsumerWidget {
                   padding: const EdgeInsets.all(16),
                   child: Column(
                     children: [
-                      const Text(
-                        'Tippe bei jedem Ausatmen einmal auf den Bildschirm. Tippe bei jedem 7. Ausatmen doppelt auf den Bilschirm. Durch langes Drücken wird das Spiel beendet.',
-                        style: TextStyle(
+                      Text(
+                        'Tippe bei jedem Ausatmen einmal auf den Bildschirm. Tippe bei jedem ${state.numberOfBreathsToTapTwice}. Ausatmen doppelt auf den Bilschirm. Durch langes Drücken wird das Spiel beendet.',
+                        style: const TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.w900,
                           letterSpacing: -1,
@@ -53,12 +53,29 @@ class BreathingGameScreen extends ConsumerWidget {
                             ),
                             iconSize: 64,
                           ),
+                          DropdownButton<int>(
+                            value: state.numberOfBreathsToTapTwice,
+                            items: [
+                              for (int i = 3; i <= 20; i++)
+                                DropdownMenuItem<int>(
+                                  value: i,
+                                  child: Text(i.toString()),
+                                ),
+                            ],
+                            onChanged: (newNumberOfBreathsToTapTwice) =>
+                                newNumberOfBreathsToTapTwice == null
+                                    ? null
+                                    : breathingGameNotifier
+                                        .setNumberOfBreathsToTapTwice(
+                                        newNumberOfBreathsToTapTwice,
+                                      ),
+                          ),
                         ],
                       ),
                       if (state.showResults)
                         Expanded(
                           child: GridView.count(
-                            crossAxisCount: 7,
+                            crossAxisCount: state.numberOfBreathsToTapTwice,
                             children: [
                               for (final result in state.results)
                                 Container(
