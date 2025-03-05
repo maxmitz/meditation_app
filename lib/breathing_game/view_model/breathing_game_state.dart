@@ -10,6 +10,7 @@ class BreathingGameState with _$BreathingGameState {
     required List<Prediction> results,
     required int numberOfBreathsToTapTwice,
     required bool showResults,
+    required Duration meditationDuration,
   }) = _BreathingGameState;
 
   factory BreathingGameState.fromJson(Map<String, dynamic> json) =>

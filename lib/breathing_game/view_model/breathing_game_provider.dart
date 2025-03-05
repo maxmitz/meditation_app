@@ -10,10 +10,20 @@ class BreathingGameNotifier extends StateNotifier<BreathingGameState> {
             results: [],
             numberOfBreathsToTapTwice: 7,
             showResults: true,
+            meditationDuration: const Duration(seconds: 0),
           ),
         );
 
   void resetResults() => state = state.copyWith(results: []);
+
+  void increaseMeditationDurationByOneSecond() => state = state.copyWith(
+        meditationDuration:
+            state.meditationDuration + const Duration(seconds: 1),
+      );
+
+  void resetMeditationTimer() => state = state.copyWith(
+        meditationDuration: const Duration(seconds: 0),
+      );
 
   void toggleShowResults() =>
       state = state.copyWith(showResults: !state.showResults);

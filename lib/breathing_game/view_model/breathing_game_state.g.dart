@@ -15,6 +15,8 @@ _$BreathingGameStateImpl _$$BreathingGameStateImplFromJson(
       numberOfBreathsToTapTwice:
           (json['numberOfBreathsToTapTwice'] as num).toInt(),
       showResults: json['showResults'] as bool,
+      meditationDuration:
+          Duration(microseconds: (json['meditationDuration'] as num).toInt()),
     );
 
 Map<String, dynamic> _$$BreathingGameStateImplToJson(
@@ -23,4 +25,5 @@ Map<String, dynamic> _$$BreathingGameStateImplToJson(
       'results': instance.results,
       'numberOfBreathsToTapTwice': instance.numberOfBreathsToTapTwice,
       'showResults': instance.showResults,
+      'meditationDuration': instance.meditationDuration.inMicroseconds,
     };

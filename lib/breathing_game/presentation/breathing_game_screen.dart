@@ -1,15 +1,38 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:meditation/breathing_game/domain/breathing_game_enums.dart';
 import 'package:meditation/breathing_game/view_model/breathing_game_provider.dart';
 
-class BreathingGameScreen extends ConsumerWidget {
+class BreathingGameScreen extends ConsumerStatefulWidget {
   const BreathingGameScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  BreathingGameScreenState createState() => BreathingGameScreenState();
+}
+
+class BreathingGameScreenState extends ConsumerState<BreathingGameScreen> {
+  Timer? timer;
+
+  @override
+  Widget build(BuildContext context) {
     final state = ref.watch(breathingGameProvider);
     final breathingGameNotifier = ref.read(breathingGameProvider.notifier);
+
+    void startTimer() {
+      timer ??= Timer.periodic(
+        const Duration(seconds: 1),
+        (_) => breathingGameNotifier.increaseMeditationDurationByOneSecond(),
+      );
+    }
+
+    void resetTimer() {
+      timer?.cancel();
+      timer = null;
+      breathingGameNotifier.resetMeditationTimer();
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Breathing Game'),
@@ -18,7 +41,10 @@ class BreathingGameScreen extends ConsumerWidget {
         child: Center(
           child: GestureDetector(
             onLongPress: () => Navigator.of(context).pop(),
-            onTap: breathingGameNotifier.singleTap,
+            onTap: () {
+              startTimer();
+              breathingGameNotifier.singleTap();
+            },
             onDoubleTap: breathingGameNotifier.doubleTap,
             child: Container(
               color: Colors.blue.withOpacity(0.3),
@@ -40,7 +66,10 @@ class BreathingGameScreen extends ConsumerWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           IconButton(
-                            onPressed: breathingGameNotifier.resetResults,
+                            onPressed: () {
+                              resetTimer();
+                              breathingGameNotifier.resetResults();
+                            },
                             icon: const Icon(Icons.restore),
                             iconSize: 64,
                           ),
@@ -72,7 +101,16 @@ class BreathingGameScreen extends ConsumerWidget {
                           ),
                         ],
                       ),
-                      if (state.showResults)
+                      if (state.showResults) ...[
+                        const SizedBox(height: 16),
+                        Text(
+                          'Meditationsdauer: ${state.meditationDuration.inMinutes}:${state.meditationDuration.inSeconds.remainder(60).toString().padLeft(2, '0')}',
+                          style: const TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.w900,
+                          ),
+                        ),
+                        const SizedBox(height: 16),
                         Expanded(
                           child: GridView.count(
                             crossAxisCount: state.numberOfBreathsToTapTwice,
@@ -96,6 +134,7 @@ class BreathingGameScreen extends ConsumerWidget {
                             ],
                           ),
                         ),
+                      ],
                     ],
                   ),
                 ),

@@ -23,6 +23,7 @@ mixin _$BreathingGameState {
   List<Prediction> get results => throw _privateConstructorUsedError;
   int get numberOfBreathsToTapTwice => throw _privateConstructorUsedError;
   bool get showResults => throw _privateConstructorUsedError;
+  Duration get meditationDuration => throw _privateConstructorUsedError;
 
   /// Serializes this BreathingGameState to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,7 +44,8 @@ abstract class $BreathingGameStateCopyWith<$Res> {
   $Res call(
       {List<Prediction> results,
       int numberOfBreathsToTapTwice,
-      bool showResults});
+      bool showResults,
+      Duration meditationDuration});
 }
 
 /// @nodoc
@@ -64,6 +66,7 @@ class _$BreathingGameStateCopyWithImpl<$Res, $Val extends BreathingGameState>
     Object? results = null,
     Object? numberOfBreathsToTapTwice = null,
     Object? showResults = null,
+    Object? meditationDuration = null,
   }) {
     return _then(_value.copyWith(
       results: null == results
@@ -78,6 +81,10 @@ class _$BreathingGameStateCopyWithImpl<$Res, $Val extends BreathingGameState>
           ? _value.showResults
           : showResults // ignore: cast_nullable_to_non_nullable
               as bool,
+      meditationDuration: null == meditationDuration
+          ? _value.meditationDuration
+          : meditationDuration // ignore: cast_nullable_to_non_nullable
+              as Duration,
     ) as $Val);
   }
 }
@@ -93,7 +100,8 @@ abstract class _$$BreathingGameStateImplCopyWith<$Res>
   $Res call(
       {List<Prediction> results,
       int numberOfBreathsToTapTwice,
-      bool showResults});
+      bool showResults,
+      Duration meditationDuration});
 }
 
 /// @nodoc
@@ -112,6 +120,7 @@ class __$$BreathingGameStateImplCopyWithImpl<$Res>
     Object? results = null,
     Object? numberOfBreathsToTapTwice = null,
     Object? showResults = null,
+    Object? meditationDuration = null,
   }) {
     return _then(_$BreathingGameStateImpl(
       results: null == results
@@ -126,6 +135,10 @@ class __$$BreathingGameStateImplCopyWithImpl<$Res>
           ? _value.showResults
           : showResults // ignore: cast_nullable_to_non_nullable
               as bool,
+      meditationDuration: null == meditationDuration
+          ? _value.meditationDuration
+          : meditationDuration // ignore: cast_nullable_to_non_nullable
+              as Duration,
     ));
   }
 }
@@ -136,7 +149,8 @@ class _$BreathingGameStateImpl implements _BreathingGameState {
   _$BreathingGameStateImpl(
       {required final List<Prediction> results,
       required this.numberOfBreathsToTapTwice,
-      required this.showResults})
+      required this.showResults,
+      required this.meditationDuration})
       : _results = results;
 
   factory _$BreathingGameStateImpl.fromJson(Map<String, dynamic> json) =>
@@ -154,10 +168,12 @@ class _$BreathingGameStateImpl implements _BreathingGameState {
   final int numberOfBreathsToTapTwice;
   @override
   final bool showResults;
+  @override
+  final Duration meditationDuration;
 
   @override
   String toString() {
-    return 'BreathingGameState(results: $results, numberOfBreathsToTapTwice: $numberOfBreathsToTapTwice, showResults: $showResults)';
+    return 'BreathingGameState(results: $results, numberOfBreathsToTapTwice: $numberOfBreathsToTapTwice, showResults: $showResults, meditationDuration: $meditationDuration)';
   }
 
   @override
@@ -170,7 +186,9 @@ class _$BreathingGameStateImpl implements _BreathingGameState {
                     numberOfBreathsToTapTwice) ||
                 other.numberOfBreathsToTapTwice == numberOfBreathsToTapTwice) &&
             (identical(other.showResults, showResults) ||
-                other.showResults == showResults));
+                other.showResults == showResults) &&
+            (identical(other.meditationDuration, meditationDuration) ||
+                other.meditationDuration == meditationDuration));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -179,7 +197,8 @@ class _$BreathingGameStateImpl implements _BreathingGameState {
       runtimeType,
       const DeepCollectionEquality().hash(_results),
       numberOfBreathsToTapTwice,
-      showResults);
+      showResults,
+      meditationDuration);
 
   /// Create a copy of BreathingGameState
   /// with the given fields replaced by the non-null parameter values.
@@ -202,7 +221,8 @@ abstract class _BreathingGameState implements BreathingGameState {
   factory _BreathingGameState(
       {required final List<Prediction> results,
       required final int numberOfBreathsToTapTwice,
-      required final bool showResults}) = _$BreathingGameStateImpl;
+      required final bool showResults,
+      required final Duration meditationDuration}) = _$BreathingGameStateImpl;
 
   factory _BreathingGameState.fromJson(Map<String, dynamic> json) =
       _$BreathingGameStateImpl.fromJson;
@@ -213,6 +233,8 @@ abstract class _BreathingGameState implements BreathingGameState {
   int get numberOfBreathsToTapTwice;
   @override
   bool get showResults;
+  @override
+  Duration get meditationDuration;
 
   /// Create a copy of BreathingGameState
   /// with the given fields replaced by the non-null parameter values.
