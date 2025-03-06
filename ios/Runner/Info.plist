@@ -35,6 +35,8 @@
 	<key>NSMicrophoneUsageDescription</key>
 	<string>We need microphone access for recording audio.</string>
 	<key>UIBackgroundModes</key>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<array>
 		<string>fetch</string>
 		<string>remote-notification</string>
