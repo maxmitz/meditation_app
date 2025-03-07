@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:meditation/audio_player/domain/audio.dart';
 import 'package:meditation/audio_player/presentation/audio_player_screen.dart';
 import 'package:meditation/breathing_game/presentation/breathing_game_screen.dart';
 import 'package:meditation/home/presentation/home_screen.dart';
@@ -20,7 +21,10 @@ final goRouter = GoRouter(
         GoRoute(
           path: RouteNames.audioPlayer,
           name: RouteNames.audioPlayer,
-          builder: (_, __) => const AudioPlayerScreen(),
+          builder: (context, state) {
+            final audio = state.extra as Audio;
+            return AudioPlayerScreen(audio: audio);
+          },
         ),
       ],
     ),
