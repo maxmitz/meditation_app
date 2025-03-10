@@ -18,38 +18,43 @@ class HomeCard extends StatelessWidget {
         onTap: onTap,
         child: Container(
           width: double.infinity,
-          height: 200,
-          margin: const EdgeInsets.all(CustomSizes.smallSize),
+          height: 300,
+          margin: const EdgeInsets.all(CustomSizes.mediumSize),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(CustomSizes.largeSize),
-            color: Colors.blue.withOpacity(0.3),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(CustomSizes.mediumLargeSize),
-            child: Stack(
-              children: [
-                Positioned(
-                  right: 30,
-                  bottom: 0,
-                  child: Hero(
-                    tag: title,
-                    child: Image.asset(
-                      imagePath,
-                      width: 120,
-                      height: 120,
-                    ),
-                  ),
-                ),
-                Text(
-                  title,
-                  style: const TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.w900,
-                    letterSpacing: -1,
-                  ),
-                ),
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Colors.blue.withOpacity(0.3),
+                Colors.blue.withOpacity(0.7),
               ],
             ),
+          ),
+          child: Column(
+            children: [
+              ClipRRect(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(CustomSizes.largeSize),
+                  topRight: Radius.circular(CustomSizes.largeSize),
+                ),
+                child: Image.asset(
+                  imagePath,
+                  width: double.infinity,
+                  height: 200,
+                  fit: BoxFit.fitWidth,
+                ),
+              ),
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 40,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w300,
+                  letterSpacing: -1,
+                ),
+              ),
+            ],
           ),
         ),
       );
