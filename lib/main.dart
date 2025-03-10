@@ -11,6 +11,7 @@ class MeditationApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => MaterialApp.router(
+        theme: ThemeData.dark(),
         routerConfig: goRouter,
       );
 }

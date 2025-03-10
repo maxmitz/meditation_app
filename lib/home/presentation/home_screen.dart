@@ -1,17 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:meditation/audio_player/domain/audio.dart';
+import 'package:meditation/home/data/meditations.dart';
 import 'package:meditation/home/presentation/widgets/home_card.dart';
+import 'package:meditation/shared/presentation/asset_paths.dart';
 import 'package:meditation/shared/routing/route_names.dart';
-
-final testMeditations = [
-  'https://d1cy5zxxhbcbkk.cloudfront.net/guided-meditations/01_Breathing_Meditation.mp3',
-  'https://achtsamkeit.swiss/wp-content/uploads/2020/06/2018-01-01_Bodyscan.mp3',
-  'https://d1cy5zxxhbcbkk.cloudfront.net/guided-meditations/05_Loving_Kindness_Meditation.mp3',
-  'https://d1cy5zxxhbcbkk.cloudfront.net/guided-meditations/Body-Scan-for-Sleep.mp3',
-  'https://www.cc.nih.gov/sites/default/files/assets/patientlibrary/audio/HJPanicAttack2CountingBreaths.mp3',
-  'https://www.cc.nih.gov/sites/default/files/assets/patientlibrary/audio/HJPanicAttack3Mantra.mp3',
-];
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -24,22 +16,17 @@ class HomeScreen extends StatelessWidget {
               children: [
                 HomeCard(
                   onTap: () => context.go(RoutePaths.breathingGame),
-                  svgPath: 'assets/svgs/wind.svg',
+                  imagePath: AssetPaths.background,
                   title: 'BREATHING GAME',
                 ),
-                for (final meditationUrl in testMeditations)
+                for (final meditationOverviewData in categories)
                   HomeCard(
                     onTap: () => context.go(
-                      RoutePaths.audioPlayer,
-                      extra: Audio(
-                        url: meditationUrl,
-                        title: 'Schlafmeditation',
-                        artist: 'mit Sarita',
-                        imageUrl: 'assets/pngs/background.png',
-                      ),
+                      RoutePaths.meditationOverview,
+                      extra: meditationOverviewData,
                     ),
-                    svgPath: 'assets/svgs/meditation.svg',
-                    title: meditationUrl,
+                    imagePath: AssetPaths.background,
+                    title: meditationOverviewData.title,
                   ),
               ],
             ),

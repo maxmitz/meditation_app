@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:meditation/shared/presentation/custom_sizes.dart';
 
 class HomeCard extends StatelessWidget {
   const HomeCard({
     required this.onTap,
-    required this.svgPath,
+    required this.imagePath,
     required this.title,
     super.key,
   });
 
   final Function() onTap;
-  final String svgPath;
+  final String imagePath;
   final String title;
 
   @override
@@ -32,10 +31,13 @@ class HomeCard extends StatelessWidget {
                 Positioned(
                   right: 30,
                   bottom: 0,
-                  child: SvgPicture.asset(
-                    svgPath,
-                    width: 120,
-                    height: 120,
+                  child: Hero(
+                    tag: title,
+                    child: Image.asset(
+                      imagePath,
+                      width: 120,
+                      height: 120,
+                    ),
                   ),
                 ),
                 Text(

@@ -1,5 +1,7 @@
 import 'package:go_router/go_router.dart';
-import 'package:meditation/audio_player/domain/audio.dart';
+import 'package:meditation/meditation_overview/presentation/meditation_overview_screen.dart';
+import 'package:meditation/meditation_overview/view_model/meditation_overview_data.dart';
+import 'package:meditation/shared/domain/meditation.dart';
 import 'package:meditation/audio_player/presentation/audio_player_screen.dart';
 import 'package:meditation/breathing_game/presentation/breathing_game_screen.dart';
 import 'package:meditation/home/presentation/home_screen.dart';
@@ -19,12 +21,25 @@ final goRouter = GoRouter(
           builder: (_, __) => const BreathingGameScreen(),
         ),
         GoRoute(
-          path: RouteNames.audioPlayer,
-          name: RouteNames.audioPlayer,
+          path: RouteNames.meditationOverview,
+          name: RouteNames.meditationOverview,
           builder: (context, state) {
-            final audio = state.extra as Audio;
-            return AudioPlayerScreen(audio: audio);
+            final meditationOverviewData =
+                state.extra as MeditationOverviewData;
+            return MeditationOverviewScreen(
+              meditationOverviewData: meditationOverviewData,
+            );
           },
+          routes: [
+            GoRoute(
+              path: RouteNames.audioPlayer,
+              name: RouteNames.audioPlayer,
+              builder: (context, state) {
+                final meditation = state.extra as Meditation;
+                return AudioPlayerScreen(meditation: meditation);
+              },
+            ),
+          ],
         ),
       ],
     ),

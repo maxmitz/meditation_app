@@ -2,20 +2,20 @@ import 'dart:ui';
 
 import 'package:audio_session/audio_session.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:meditation/audio_player/domain/audio.dart';
+import 'package:meditation/shared/domain/meditation.dart';
 import 'package:meditation/audio_player/domain/position_data.dart';
 import 'package:meditation/audio_player/presentation/widgets/play_pause_button.dart';
 import 'package:meditation/audio_player/presentation/widgets/seekbar.dart';
+import 'package:meditation/shared/presentation/custom_back_button.dart';
 import 'package:rxdart/rxdart.dart';
 
 T? ambiguate<T>(T? value) => value;
 
 class AudioPlayerScreen extends StatefulWidget {
-  const AudioPlayerScreen({required this.audio, super.key});
+  const AudioPlayerScreen({required this.meditation, super.key});
 
-  final Audio audio;
+  final Meditation meditation;
 
   @override
   State<AudioPlayerScreen> createState() => _AudioPlayerScreenState();
@@ -45,7 +45,7 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen>
     await _player.setAudioSource(
       AudioSource.uri(
         Uri.parse(
-          widget.audio.url,
+          widget.meditation.url,
         ),
       ),
     );
@@ -86,18 +86,21 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen>
         body: Stack(
           alignment: Alignment.center,
           children: [
-            Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(widget.audio.imageUrl),
-                  fit: BoxFit.cover,
-                  opacity: 0.8,
+            Hero(
+              tag: widget.meditation.title,
+              child: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(widget.meditation.imageUrl),
+                    fit: BoxFit.cover,
+                    opacity: 0.8,
+                  ),
                 ),
-              ),
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 7, sigmaY: 7),
-                child: Container(
-                  color: Colors.black.withOpacity(0.5),
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 7, sigmaY: 7),
+                  child: Container(
+                    color: Colors.black.withOpacity(0.5),
+                  ),
                 ),
               ),
             ),
@@ -105,7 +108,7 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen>
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  widget.audio.title,
+                  widget.meditation.title,
                   style: const TextStyle(
                     fontSize: 40,
                     color: Colors.white,
@@ -114,7 +117,7 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen>
                   ),
                 ),
                 Text(
-                  widget.audio.artist,
+                  widget.meditation.artist,
                   style: TextStyle(
                     fontSize: 32,
                     color: Colors.grey[300],
@@ -138,17 +141,10 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen>
                 PlayPauseButton(_player),
               ],
             ),
-            Positioned(
-              bottom: 32,
-              left: 20,
-              child: IconButton(
-                onPressed: () => context.pop(),
-                icon: const Icon(
-                  Icons.arrow_back,
-                  color: Colors.white,
-                  size: 32,
-                ),
-              ),
+            const Positioned(
+              bottom: 0,
+              left: 0,
+              child: CustomBackButton(),
             ),
           ],
         ),

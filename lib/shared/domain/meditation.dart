@@ -1,5 +1,5 @@
-class Audio {
-  Audio({
+class Meditation {
+  Meditation({
     required this.url,
     required this.title,
     required this.artist,
