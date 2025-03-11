@@ -21,7 +21,8 @@ class MeditationOverviewScreen extends StatelessWidget {
             Stack(
               children: [
                 Hero(
-                  tag: meditationOverviewData.title,
+                  tag: meditationOverviewData.imagePath +
+                      meditationOverviewData.title,
                   child: Image.asset(meditationOverviewData.imagePath),
                 ),
                 Positioned(

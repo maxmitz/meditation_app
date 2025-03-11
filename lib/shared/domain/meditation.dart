@@ -3,10 +3,10 @@ class Meditation {
     required this.url,
     required this.title,
     required this.artist,
-    required this.imageUrl,
+    required this.imagePath,
   });
   final String url;
   final String title;
   final String artist;
-  final String imageUrl;
+  final String imagePath;
 }

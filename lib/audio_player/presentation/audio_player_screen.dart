@@ -89,11 +89,11 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen>
           alignment: Alignment.center,
           children: [
             Hero(
-              tag: widget.meditation.title,
+              tag: widget.meditation.imagePath + widget.meditation.title,
               child: Container(
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(widget.meditation.imageUrl),
+                    image: AssetImage(widget.meditation.imagePath),
                     fit: BoxFit.cover,
                     opacity: 0.8,
                   ),

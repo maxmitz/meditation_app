@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
                 HomeCard(
                   onTap: () => context.go(RoutePaths.breathingGame),
                   imagePath: AssetPaths.background,
-                  title: 'BREATHING GAME',
+                  title: 'Spiel',
                 ),
                 for (final meditationOverviewData in categories)
                   HomeCard(
