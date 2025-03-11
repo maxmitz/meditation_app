@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:audio_session/audio_session.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:just_audio_background/just_audio_background.dart';
 import 'package:meditation/shared/domain/meditation.dart';
 import 'package:meditation/audio_player/domain/position_data.dart';
 import 'package:meditation/audio_player/presentation/widgets/play_pause_button.dart';
@@ -46,6 +47,14 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen>
       AudioSource.uri(
         Uri.parse(
           widget.meditation.url,
+        ),
+        tag: MediaItem(
+          id: widget.meditation.title,
+          album: 'Album name',
+          title: widget.meditation.title,
+          artUri: Uri.parse(
+            'https://upload.wikimedia.org/wikipedia/commons/a/a9/Example.jpg',
+          ),
         ),
       ),
     );

@@ -2,7 +2,7 @@ name: meditation
 description: "Meditation App"
 publish_to: 'none'
 
-version: 1.0.0+3
+version: 1.0.0+4
 
 environment:
   sdk: ^3.5.3
@@ -30,6 +30,7 @@ dependencies:
   just_audio: ^0.9.46
   rxdart: ^0.28.0
   audio_session: ^0.1.25
+  just_audio_background: ^0.0.1-beta.15
 
 dev_dependencies:
   flutter_test:
@@ -48,3 +49,4 @@ flutter:
 
   assets:
     - assets/pngs/
+    - assets/mp3s/
