@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
                         RoutePaths.meditationOverview,
                         extra: meditationOverviewData,
                       ),
-                      imagePath: AssetPaths.background,
+                      imagePath: meditationOverviewData.imagePath,
                       title: meditationOverviewData.title,
                     ),
                   const HomeGroupText(text: 'Tools'),

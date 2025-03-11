@@ -8,14 +8,14 @@ final testMeditations = [
         'https://d1cy5zxxhbcbkk.cloudfront.net/guided-meditations/01_Breathing_Meditation.mp3',
     title: 'Title1',
     artist: 'Artist1',
-    imagePath: AssetPaths.background,
+    imagePath: AssetPaths.backgroundNightSky,
   ),
   Meditation(
     url:
         'https://achtsamkeit.swiss/wp-content/uploads/2020/06/2018-01-01_Bodyscan.mp3',
     title: 'Title2',
     artist: 'Artist2',
-    imagePath: AssetPaths.background,
+    imagePath: AssetPaths.backgroundFlowers,
   ),
   Meditation(
     url:
@@ -51,7 +51,7 @@ final categories = [
   MeditationOverviewData(
     title: 'Schlaf',
     meditations: testMeditations,
-    imagePath: AssetPaths.background,
+    imagePath: AssetPaths.backgroundNightSky,
   ),
   MeditationOverviewData(
     title: 'Fokus',
@@ -61,7 +61,7 @@ final categories = [
   MeditationOverviewData(
     title: 'Entspannung',
     meditations: testMeditations,
-    imagePath: AssetPaths.background,
+    imagePath: AssetPaths.backgroundFlowers,
   ),
   MeditationOverviewData(
     title: 'Positivität',
