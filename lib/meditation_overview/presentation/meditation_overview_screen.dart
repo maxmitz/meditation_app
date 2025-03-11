@@ -18,39 +18,57 @@ class MeditationOverviewScreen extends StatelessWidget {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Stack(
-              children: [
-                Hero(
-                  tag: meditationOverviewData.imagePath +
-                      meditationOverviewData.title,
-                  child: Image.asset(meditationOverviewData.imagePath),
-                ),
-                Positioned(
-                  bottom: CustomSizes.mediumSize,
-                  left: CustomSizes.mediumSize,
-                  child: SizedBox(
-                    width: MediaQuery.sizeOf(context).width,
-                    child: Text(
-                      meditationOverviewData.title,
-                      style: const TextStyle(
-                        fontSize: 48,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w900,
-                      ),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Stack(
+                      children: [
+                        Hero(
+                          tag: meditationOverviewData.imagePath +
+                              meditationOverviewData.title,
+                          child: Image.asset(meditationOverviewData.imagePath),
+                        ),
+                        Positioned(
+                          bottom: CustomSizes.mediumSize,
+                          left: CustomSizes.mediumSize,
+                          child: SizedBox(
+                            width: MediaQuery.sizeOf(context).width,
+                            child: Text(
+                              meditationOverviewData.title,
+                              style: const TextStyle(
+                                fontSize: 48,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w900,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                ),
-              ],
-            ),
-            for (final meditation in meditationOverviewData.meditations)
-              ListTile(
-                title: Text(meditation.title),
-                onTap: () => context.push(
-                  RoutePaths.audioPlayer,
-                  extra: meditation,
+                    for (final meditation
+                        in meditationOverviewData.meditations) ...[
+                      ListTile(
+                        title: Text(
+                          meditation.title,
+                        ),
+                        titleTextStyle: const TextStyle(fontSize: 16),
+                        subtitle: Text(meditation.artist),
+                        onTap: () => context.push(
+                          RoutePaths.audioPlayer,
+                          extra: meditation,
+                        ),
+                      ),
+                      const Divider(
+                        height: 1,
+                        thickness: 0.5,
+                      ),
+                    ],
+                  ],
                 ),
               ),
-            const Spacer(),
+            ),
             const CustomBackButton(),
           ],
         ),

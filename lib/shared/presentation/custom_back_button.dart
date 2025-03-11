@@ -8,7 +8,7 @@ class CustomBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.only(left: 20, bottom: 32),
+        padding: const EdgeInsets.only(left: 20, bottom: 32, top: 12),
         child: IconButton(
           onPressed: () => context.pop(),
           icon: const Icon(
