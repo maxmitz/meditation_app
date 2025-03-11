@@ -71,13 +71,6 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen>
     super.dispose();
   }
 
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (state == AppLifecycleState.paused) {
-      _player.stop();
-    }
-  }
-
   Stream<PositionData> get _positionDataStream =>
       Rx.combineLatest3<Duration, Duration, Duration?, PositionData>(
         _player.positionStream,
