@@ -4,8 +4,7 @@ import 'package:meditation/shared/presentation/asset_paths.dart';
 
 final testMeditations = [
   Meditation(
-    url:
-        'https://d1cy5zxxhbcbkk.cloudfront.net/guided-meditations/01_Breathing_Meditation.mp3',
+    url: AssetPaths.meditation1Audio,
     title: 'Title1',
     artist: 'Artist1',
     imagePath: AssetPaths.backgroundNightSky,

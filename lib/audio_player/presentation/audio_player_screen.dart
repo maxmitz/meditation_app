@@ -43,8 +43,6 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen>
     //   },
     // );
     // try {
-    print(widget.meditation.url);
-    print('asset:///${widget.meditation.imagePath}');
     await _player.setAudioSource(
       AudioSource.uri(
         Uri.parse(
@@ -55,7 +53,7 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen>
           album: 'Album name',
           title: widget.meditation.title,
           artUri: Uri.parse(
-            'asset:///${widget.meditation.imagePath}',
+            'https://upload.wikimedia.org/wikipedia/commons/a/a9/Example.jpg',
           ),
         ),
       ),
