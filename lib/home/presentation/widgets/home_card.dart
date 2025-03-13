@@ -22,7 +22,8 @@ class HomeCard extends StatelessWidget {
               tag: imagePath + title,
               child: Container(
                 margin: const EdgeInsets.symmetric(
-                    vertical: CustomSizes.mediumSize),
+                  vertical: CustomSizes.mediumSize,
+                ),
                 height: 200,
                 width: double.infinity,
                 decoration: BoxDecoration(

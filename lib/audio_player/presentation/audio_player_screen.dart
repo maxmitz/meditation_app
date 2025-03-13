@@ -11,8 +11,6 @@ import 'package:meditation/audio_player/presentation/widgets/seekbar.dart';
 import 'package:meditation/shared/presentation/custom_back_button.dart';
 import 'package:rxdart/rxdart.dart';
 
-T? ambiguate<T>(T? value) => value;
-
 class AudioPlayerScreen extends StatefulWidget {
   const AudioPlayerScreen({required this.meditation, super.key});
 
@@ -29,44 +27,41 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen>
   @override
   void initState() {
     super.initState();
-    ambiguate(WidgetsBinding.instance)!.addObserver(this);
     _init();
   }
 
   Future<void> _init() async {
     final session = await AudioSession.instance;
     await session.configure(const AudioSessionConfiguration.speech());
-    // _player.playbackEventStream.listen(
-    //   (event) {},
-    //   onError: (Object e, StackTrace stackTrace) {
-    //     print('A stream error occurred: $e');
-    //   },
-    // );
-    // try {
-    await _player.setAudioSource(
-      AudioSource.uri(
-        Uri.parse(
-          widget.meditation.url,
-        ),
-        tag: MediaItem(
-          id: widget.meditation.title,
-          album: 'Album name',
-          title: widget.meditation.title,
-          artUri: Uri.parse(
-            'https://upload.wikimedia.org/wikipedia/commons/a/a9/Example.jpg',
+    _player.playbackEventStream.listen(
+      (event) {},
+      onError: (Object e, StackTrace stackTrace) {
+        print('A stream error occurred: $e');
+      },
+    );
+    try {
+      await _player.setAudioSource(
+        AudioSource.uri(
+          Uri.parse(
+            widget.meditation.url,
+          ),
+          tag: MediaItem(
+            id: widget.meditation.title,
+            album: 'Album name',
+            title: widget.meditation.title,
+            artUri: Uri.parse(
+              'https://upload.wikimedia.org/wikipedia/commons/a/a9/Example.jpg',
+            ),
           ),
         ),
-      ),
-    );
-    // }
-    // on PlayerException catch (e) {
-    //   // print('Error loading audio source: $e');
-    // }
+      );
+    } on PlayerException catch (e) {
+      print('Error loading audio source: $e');
+    }
   }
 
   @override
   void dispose() {
-    ambiguate(WidgetsBinding.instance)!.removeObserver(this);
     _player.dispose();
     super.dispose();
   }
