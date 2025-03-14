@@ -7,6 +7,11 @@ class AssetPaths {
       'assets/pngs/background_mountain.png';
   static const String backgroundGame = 'assets/pngs/background_game.png';
 
-  static const String meditation1Audio =
-      'asset:///assets/mp3s/meditation_1.mp3';
+  static const String meditationNonSleepDeepRestHuberman =
+      'asset:///assets/mp3s/non_sleep_deep_rest_andrew_huberman.mp3';
+  static const String meditationWimHofSlow =
+      'asset:///assets/mp3s/wim_hof_slow.mp3';
+  static const String meditationWimHof = 'asset:///assets/mp3s/wim_hof.mp3';
+  static const String meditationSleepInnerGarden =
+      'asset:///assets/mp3s/einschlafmeditation_inner_garden.mp3';
 }
