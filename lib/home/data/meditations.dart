@@ -2,7 +2,7 @@ import 'package:meditation/meditation_overview/view_model/meditation_overview_da
 import 'package:meditation/shared/domain/meditation.dart';
 import 'package:meditation/shared/presentation/asset_paths.dart';
 
-final testMeditations = [
+const testMeditations = [
   Meditation(
     url: AssetPaths.meditation1Audio,
     title: 'Title1',
@@ -21,32 +21,32 @@ final testMeditations = [
         'https://d1cy5zxxhbcbkk.cloudfront.net/guided-meditations/05_Loving_Kindness_Meditation.mp3',
     title: 'Title3',
     artist: 'Artist3',
-    imagePath: AssetPaths.background,
+    imagePath: AssetPaths.backgroundRiver,
   ),
   Meditation(
     url:
         'https://d1cy5zxxhbcbkk.cloudfront.net/guided-meditations/Body-Scan-for-Sleep.mp3',
     title: 'Title4',
     artist: 'Artist4',
-    imagePath: AssetPaths.background,
+    imagePath: AssetPaths.backgroundRiver,
   ),
   Meditation(
     url:
         'https://www.cc.nih.gov/sites/default/files/assets/patientlibrary/audio/HJPanicAttack2CountingBreaths.mp3',
     title: 'Title5',
     artist: 'Artist5',
-    imagePath: AssetPaths.background,
+    imagePath: AssetPaths.backgroundRiver,
   ),
   Meditation(
     url:
         'https://www.cc.nih.gov/sites/default/files/assets/patientlibrary/audio/HJPanicAttack3Mantra.mp3',
     title: 'Title6',
     artist: 'Artist6',
-    imagePath: AssetPaths.background,
+    imagePath: AssetPaths.backgroundRiver,
   ),
 ];
 
-final categories = [
+const categories = [
   MeditationOverviewData(
     title: 'Schlaf',
     meditations: testMeditations,
@@ -55,7 +55,7 @@ final categories = [
   MeditationOverviewData(
     title: 'Fokus',
     meditations: testMeditations,
-    imagePath: AssetPaths.background,
+    imagePath: AssetPaths.backgroundMountain,
   ),
   MeditationOverviewData(
     title: 'Entspannung',
@@ -65,6 +65,6 @@ final categories = [
   MeditationOverviewData(
     title: 'Positivität',
     meditations: testMeditations,
-    imagePath: AssetPaths.background,
+    imagePath: AssetPaths.backgroundRiver,
   ),
 ];

@@ -34,7 +34,7 @@ class HomeScreen extends StatelessWidget {
                   const HomeGroupText(text: 'Tools'),
                   HomeCard(
                     onTap: () => context.go(RoutePaths.breathingGame),
-                    imagePath: AssetPaths.background,
+                    imagePath: AssetPaths.backgroundGame,
                     title: 'Spiel',
                   ),
                 ],

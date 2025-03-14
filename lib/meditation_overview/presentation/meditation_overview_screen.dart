@@ -57,7 +57,9 @@ class MeditationOverviewScreen extends StatelessWidget {
                         subtitle: Text(meditation.artist),
                         onTap: () => context.push(
                           RoutePaths.audioPlayer,
-                          extra: meditation,
+                          extra: meditation.copyWith(
+                            imagePath: meditationOverviewData.imagePath,
+                          ),
                         ),
                       ),
                       const Divider(
