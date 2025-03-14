@@ -100,42 +100,48 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen>
                 ),
               ),
             ),
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  widget.meditation.title,
-                  style: const TextStyle(
-                    fontSize: 40,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w300,
-                    letterSpacing: -1,
+            Padding(
+              padding: const EdgeInsets.all(8),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    widget.meditation.title,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      fontSize: 40,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w300,
+                      letterSpacing: -1,
+                      wordSpacing: -2,
+                      height: 1.1,
+                    ),
                   ),
-                ),
-                Text(
-                  widget.meditation.artist,
-                  style: TextStyle(
-                    fontSize: 32,
-                    color: Colors.grey[300],
-                    fontWeight: FontWeight.w100,
-                    letterSpacing: -1,
+                  Text(
+                    widget.meditation.artist,
+                    style: TextStyle(
+                      fontSize: 32,
+                      color: Colors.grey[300],
+                      fontWeight: FontWeight.w100,
+                      letterSpacing: -1,
+                    ),
                   ),
-                ),
-                StreamBuilder<PositionData>(
-                  stream: _positionDataStream,
-                  builder: (context, snapshot) {
-                    final positionData = snapshot.data;
-                    return SeekBar(
-                      duration: positionData?.duration ?? Duration.zero,
-                      position: positionData?.position ?? Duration.zero,
-                      bufferedPosition:
-                          positionData?.bufferedPosition ?? Duration.zero,
-                      onChangeEnd: _player.seek,
-                    );
-                  },
-                ),
-                PlayPauseButton(_player),
-              ],
+                  StreamBuilder<PositionData>(
+                    stream: _positionDataStream,
+                    builder: (context, snapshot) {
+                      final positionData = snapshot.data;
+                      return SeekBar(
+                        duration: positionData?.duration ?? Duration.zero,
+                        position: positionData?.position ?? Duration.zero,
+                        bufferedPosition:
+                            positionData?.bufferedPosition ?? Duration.zero,
+                        onChangeEnd: _player.seek,
+                      );
+                    },
+                  ),
+                  PlayPauseButton(_player),
+                ],
+              ),
             ),
             const Positioned(
               bottom: 0,

@@ -12,6 +12,7 @@ _$MeditationImpl _$$MeditationImplFromJson(Map<String, dynamic> json) =>
       title: json['title'] as String,
       artist: json['artist'] as String,
       imagePath: json['imagePath'] as String,
+      duration: Duration(microseconds: (json['duration'] as num).toInt()),
     );
 
 Map<String, dynamic> _$$MeditationImplToJson(_$MeditationImpl instance) =>
@@ -20,4 +21,5 @@ Map<String, dynamic> _$$MeditationImplToJson(_$MeditationImpl instance) =>
       'title': instance.title,
       'artist': instance.artist,
       'imagePath': instance.imagePath,
+      'duration': instance.duration.inMicroseconds,
     };

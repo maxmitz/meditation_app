@@ -51,7 +51,7 @@ class MeditationOverviewScreen extends StatelessWidget {
                         in meditationOverviewData.meditations) ...[
                       ListTile(
                         title: Text(
-                          meditation.title,
+                          '${meditation.title} - ${meditation.duration.inMinutes} min',
                         ),
                         titleTextStyle: const TextStyle(fontSize: 16),
                         subtitle: Text(meditation.artist),

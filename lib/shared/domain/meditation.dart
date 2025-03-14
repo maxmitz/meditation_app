@@ -10,6 +10,7 @@ class Meditation with _$Meditation {
     required String title,
     required String artist,
     required String imagePath,
+    required Duration duration,
   }) = _Meditation;
 
   factory Meditation.fromJson(Map<String, dynamic> json) =>
