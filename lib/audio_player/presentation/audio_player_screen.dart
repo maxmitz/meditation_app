@@ -48,8 +48,9 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen>
           ),
           tag: MediaItem(
             id: widget.meditation.title,
-            album: 'Album name',
             title: widget.meditation.title,
+            artist: widget.meditation.artist,
+            duration: widget.meditation.duration,
             artUri: await getImageFileFromAssets(widget.meditation.imagePath),
           ),
         ),
