@@ -1,12 +1,17 @@
-class Meditation {
-  Meditation({
-    required this.url,
-    required this.title,
-    required this.artist,
-    required this.imagePath,
-  });
-  final String url;
-  final String title;
-  final String artist;
-  final String imagePath;
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'meditation.freezed.dart';
+part 'meditation.g.dart';
+
+@freezed
+class Meditation with _$Meditation {
+  const factory Meditation({
+    required String url,
+    required String title,
+    required String artist,
+    required String imagePath,
+  }) = _Meditation;
+
+  factory Meditation.fromJson(Map<String, dynamic> json) =>
+      _$MeditationFromJson(json);
 }

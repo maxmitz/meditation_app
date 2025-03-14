@@ -11,10 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-
-  cupertino_icons: ^1.0.8
-  flutter_svg: ^2.0.17
-
+  # routing
   go_router: ^14.8.1
 
   # state management
@@ -28,9 +25,17 @@ dependencies:
 
   # audio player
   just_audio: ^0.9.46
-  rxdart: ^0.28.0
   audio_session: ^0.1.25
   just_audio_background: ^0.0.1-beta.15
+
+  # audio streaming
+  rxdart: ^0.28.0
+
+  # self explanatory
+  path_provider: ^2.1.5
+  cupertino_icons: ^1.0.8
+  flutter_svg: ^2.0.17
+
 
 dev_dependencies:
   flutter_test:
