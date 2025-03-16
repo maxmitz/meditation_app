@@ -14,4 +14,5 @@ class AssetPaths {
   static const String meditationWimHof = 'asset:///assets/mp3s/wim_hof.mp3';
   static const String meditationSleepInnerGarden =
       'asset:///assets/mp3s/einschlafmeditation_inner_garden.mp3';
+  static const String meditationSelfLove = 'asset:///assets/mp3s/self_love.mp3';
 }

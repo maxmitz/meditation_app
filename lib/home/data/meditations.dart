@@ -14,15 +14,15 @@ const sleep = MeditationOverviewData(
   title: 'Schlafen',
   meditations: [
     Meditation(
-      url: AssetPaths.meditationSleepInnerGarden,
+      url:
+          'https://d1cy5zxxhbcbkk.cloudfront.net/guided-meditations/Body-Scan-for-Sleep.mp3',
       title: 'Body Scan for Sleep',
       artist: 'UCLA',
       imagePath: AssetPaths.backgroundNightSky,
       duration: Duration(minutes: 14, seconds: 3),
     ),
     Meditation(
-      url:
-          'https://d1cy5zxxhbcbkk.cloudfront.net/guided-meditations/Body-Scan-for-Sleep.mp3',
+      url: AssetPaths.meditationSleepInnerGarden,
       title: 'Geführte Meditation zum Einschlafen',
       artist: 'Inner Garden',
       imagePath: AssetPaths.backgroundNightSky,
@@ -210,12 +210,19 @@ const meditationsPositivity = MeditationOverviewData(
       imagePath: AssetPaths.backgroundRiver,
       duration: Duration(minutes: 15),
     ),
+    Meditation(
+      url: AssetPaths.meditationSelfLove,
+      title: 'Self Love',
+      artist: 'Self',
+      imagePath: AssetPaths.backgroundRiver,
+      duration: Duration(minutes: 9, seconds: 18),
+    ),
   ],
   imagePath: AssetPaths.backgroundRiver,
 );
 
 const focus = MeditationOverviewData(
-  title: 'Fokus',
+  title: 'Extrem',
   meditations: [
     Meditation(
       url: AssetPaths.meditationWimHofSlow,
