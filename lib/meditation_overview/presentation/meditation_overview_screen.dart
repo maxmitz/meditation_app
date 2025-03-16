@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:meditation/meditation_overview/view_model/meditation_overview_data.dart';
 import 'package:meditation/shared/presentation/custom_back_button.dart';
 import 'package:meditation/shared/presentation/custom_sizes.dart';
-import 'package:meditation/shared/routing/route_names.dart';
+import 'package:meditation/shared/presentation/meditation_tile.dart';
 
 class MeditationOverviewScreen extends StatelessWidget {
   const MeditationOverviewScreen({
@@ -47,26 +46,8 @@ class MeditationOverviewScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    for (final meditation
-                        in meditationOverviewData.meditations) ...[
-                      ListTile(
-                        title: Text(
-                          '${meditation.title} - ${meditation.duration.inMinutes} min',
-                        ),
-                        titleTextStyle: const TextStyle(fontSize: 16),
-                        subtitle: Text(meditation.artist),
-                        onTap: () => context.push(
-                          RoutePaths.audioPlayer,
-                          extra: meditation.copyWith(
-                            imagePath: meditationOverviewData.imagePath,
-                          ),
-                        ),
-                      ),
-                      const Divider(
-                        height: 1,
-                        thickness: 0.5,
-                      ),
-                    ],
+                    for (final meditation in meditationOverviewData.meditations)
+                      MeditationTile(meditation: meditation),
                   ],
                 ),
               ),
