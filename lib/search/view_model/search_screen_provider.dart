@@ -69,11 +69,11 @@ class SearchScreenNotifier extends StateNotifier<SearchScreenState> {
     if (searchQuery.isEmpty && searchElements.isNotEmpty) {
       return allMeditations.where((meditation) {
         for (final element in searchElements) {
-          if (meditation.elements.contains(element)) {
-            return true;
+          if (!meditation.elements.contains(element)) {
+            return false;
           }
         }
-        return false;
+        return true;
       }).toList();
     }
 
