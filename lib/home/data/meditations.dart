@@ -1,5 +1,6 @@
 import 'package:meditation/meditation_overview/view_model/meditation_overview_data.dart';
 import 'package:meditation/shared/domain/meditation.dart';
+import 'package:meditation/shared/domain/meditation_elements.dart';
 import 'package:meditation/shared/presentation/asset_paths.dart';
 
 const categories = [
@@ -20,6 +21,7 @@ const sleep = MeditationOverviewData(
       artist: 'UCLA',
       imagePath: AssetPaths.backgroundNightSky,
       duration: Duration(minutes: 14, seconds: 3),
+      elements: [],
     ),
     Meditation(
       url: AssetPaths.meditationSleepInnerGarden,
@@ -27,6 +29,7 @@ const sleep = MeditationOverviewData(
       artist: 'Inner Garden',
       imagePath: AssetPaths.backgroundNightSky,
       duration: Duration(minutes: 14, seconds: 3),
+      elements: [],
     ),
   ],
   imagePath: AssetPaths.backgroundNightSky,
@@ -46,6 +49,7 @@ const meditationsMindfulness = MeditationOverviewData(
       artist: 'MBSR Köln',
       imagePath: AssetPaths.backgroundNightSky,
       duration: Duration(minutes: 15, seconds: 4),
+      elements: [],
     ),
     // TODO check all meditations after this
     Meditation(
@@ -55,6 +59,7 @@ const meditationsMindfulness = MeditationOverviewData(
       artist: 'UCLA',
       imagePath: AssetPaths.backgroundRiver,
       duration: Duration(minutes: 19),
+      elements: [],
     ),
     Meditation(
       url:
@@ -63,6 +68,7 @@ const meditationsMindfulness = MeditationOverviewData(
       artist: 'UCLA',
       imagePath: AssetPaths.backgroundRiver,
       duration: Duration(minutes: 12),
+      elements: [],
     ),
     Meditation(
       url:
@@ -71,6 +77,7 @@ const meditationsMindfulness = MeditationOverviewData(
       artist: 'UCLA',
       imagePath: AssetPaths.backgroundRiver,
       duration: Duration(minutes: 3),
+      elements: [],
     ),
     Meditation(
       url:
@@ -79,6 +86,7 @@ const meditationsMindfulness = MeditationOverviewData(
       artist: 'MBSR Köln',
       imagePath: AssetPaths.backgroundRiver,
       duration: Duration(minutes: 8),
+      elements: [],
     ),
     Meditation(
       url: 'https://www.mbsr-kurs-koeln.de/downloads/AtemMeditation.mp3',
@@ -86,6 +94,7 @@ const meditationsMindfulness = MeditationOverviewData(
       artist: 'MBSR Köln',
       imagePath: AssetPaths.backgroundRiver,
       duration: Duration(minutes: 13),
+      elements: [],
     ),
     Meditation(
       url:
@@ -94,6 +103,7 @@ const meditationsMindfulness = MeditationOverviewData(
       artist: 'MBSR Köln',
       imagePath: AssetPaths.backgroundRiver,
       duration: Duration(minutes: 15),
+      elements: [],
     ),
     Meditation(
       url:
@@ -102,6 +112,7 @@ const meditationsMindfulness = MeditationOverviewData(
       artist: 'Yoga und Achtsamkeit in Bonn',
       imagePath: AssetPaths.backgroundRiver,
       duration: Duration(minutes: 20),
+      elements: [],
     ),
     Meditation(
       url:
@@ -110,6 +121,7 @@ const meditationsMindfulness = MeditationOverviewData(
       artist: 'Yoga und Achtsamkeit in Bonn',
       imagePath: AssetPaths.backgroundRiver,
       duration: Duration(minutes: 21),
+      elements: [],
     ),
     Meditation(
       url:
@@ -118,6 +130,7 @@ const meditationsMindfulness = MeditationOverviewData(
       artist: 'Yoga und Achtsamkeit in Bonn',
       imagePath: AssetPaths.backgroundRiver,
       duration: Duration(minutes: 22),
+      elements: [],
     ),
     Meditation(
       url: 'https://yabonn.de/wp-content/uploads/2020/04/AtemMeditationI.mp3',
@@ -125,6 +138,7 @@ const meditationsMindfulness = MeditationOverviewData(
       artist: 'Yoga und Achtsamkeit in Bonn',
       imagePath: AssetPaths.backgroundRiver,
       duration: Duration(minutes: 15),
+      elements: [],
     ),
   ],
   imagePath: AssetPaths.backgroundMountain,
@@ -142,6 +156,11 @@ const meditationsRelax = MeditationOverviewData(
       artist: 'Andrew Huberman',
       imagePath: AssetPaths.backgroundRiver,
       duration: Duration(minutes: 10, seconds: 42),
+      elements: [
+        MeditationElements.bodyScan,
+        MeditationElements.breathing,
+        MeditationElements.visualisation,
+      ],
     ),
   ],
   imagePath: AssetPaths.backgroundFlowers,
@@ -162,6 +181,7 @@ const meditationsPositivity = MeditationOverviewData(
       artist: 'UCLA',
       imagePath: AssetPaths.backgroundRiver,
       duration: Duration(minutes: 9),
+      elements: [],
     ),
     Meditation(
       url:
@@ -170,6 +190,7 @@ const meditationsPositivity = MeditationOverviewData(
       artist: 'MBSR Köln',
       imagePath: AssetPaths.backgroundRiver,
       duration: Duration(minutes: 9),
+      elements: [],
     ),
     Meditation(
       url: 'https://www.mbsr-kurs-koeln.de/downloads/Metta.mp3',
@@ -177,6 +198,7 @@ const meditationsPositivity = MeditationOverviewData(
       artist: 'MBSR Köln',
       imagePath: AssetPaths.backgroundRiver,
       duration: Duration(minutes: 13),
+      elements: [],
     ),
     Meditation(
       url:
@@ -185,6 +207,7 @@ const meditationsPositivity = MeditationOverviewData(
       artist: 'Yoga und Achtsamkeit in Bonn',
       imagePath: AssetPaths.backgroundRiver,
       duration: Duration(minutes: 15),
+      elements: [],
     ),
     Meditation(
       url:
@@ -193,6 +216,7 @@ const meditationsPositivity = MeditationOverviewData(
       artist: 'Yoga und Achtsamkeit in Bonn',
       imagePath: AssetPaths.backgroundRiver,
       duration: Duration(minutes: 18),
+      elements: [],
     ),
     Meditation(
       url:
@@ -200,6 +224,7 @@ const meditationsPositivity = MeditationOverviewData(
       title: 'Mitgefühl für Andere',
       artist: 'Yoga und Achtsamkeit in Bonn',
       imagePath: AssetPaths.backgroundRiver,
+      elements: [],
       duration: Duration(minutes: 20),
     ),
     Meditation(
@@ -208,6 +233,7 @@ const meditationsPositivity = MeditationOverviewData(
       title: 'Mitgefühl mit sich Selbst',
       artist: 'Yoga und Achtsamkeit in Bonn',
       imagePath: AssetPaths.backgroundRiver,
+      elements: [],
       duration: Duration(minutes: 15),
     ),
     Meditation(
@@ -216,6 +242,7 @@ const meditationsPositivity = MeditationOverviewData(
       artist: 'Self',
       imagePath: AssetPaths.backgroundRiver,
       duration: Duration(minutes: 9, seconds: 18),
+      elements: [],
     ),
   ],
   imagePath: AssetPaths.backgroundRiver,
@@ -230,6 +257,7 @@ const focus = MeditationOverviewData(
       artist: 'Wim Hof',
       imagePath: AssetPaths.backgroundGame,
       duration: Duration(minutes: 11),
+      elements: [],
     ),
     Meditation(
       url: AssetPaths.meditationWimHof,
@@ -237,6 +265,7 @@ const focus = MeditationOverviewData(
       artist: 'Wim Hof',
       imagePath: AssetPaths.backgroundGame,
       duration: Duration(minutes: 11),
+      elements: [],
     ),
   ],
   imagePath: AssetPaths.backgroundGame,

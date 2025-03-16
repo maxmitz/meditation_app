@@ -25,6 +25,7 @@ mixin _$Meditation {
   String get artist => throw _privateConstructorUsedError;
   String get imagePath => throw _privateConstructorUsedError;
   Duration get duration => throw _privateConstructorUsedError;
+  List<MeditationElements> get elements => throw _privateConstructorUsedError;
 
   /// Serializes this Meditation to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -47,7 +48,8 @@ abstract class $MeditationCopyWith<$Res> {
       String title,
       String artist,
       String imagePath,
-      Duration duration});
+      Duration duration,
+      List<MeditationElements> elements});
 }
 
 /// @nodoc
@@ -70,6 +72,7 @@ class _$MeditationCopyWithImpl<$Res, $Val extends Meditation>
     Object? artist = null,
     Object? imagePath = null,
     Object? duration = null,
+    Object? elements = null,
   }) {
     return _then(_value.copyWith(
       url: null == url
@@ -92,6 +95,10 @@ class _$MeditationCopyWithImpl<$Res, $Val extends Meditation>
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as Duration,
+      elements: null == elements
+          ? _value.elements
+          : elements // ignore: cast_nullable_to_non_nullable
+              as List<MeditationElements>,
     ) as $Val);
   }
 }
@@ -109,7 +116,8 @@ abstract class _$$MeditationImplCopyWith<$Res>
       String title,
       String artist,
       String imagePath,
-      Duration duration});
+      Duration duration,
+      List<MeditationElements> elements});
 }
 
 /// @nodoc
@@ -130,6 +138,7 @@ class __$$MeditationImplCopyWithImpl<$Res>
     Object? artist = null,
     Object? imagePath = null,
     Object? duration = null,
+    Object? elements = null,
   }) {
     return _then(_$MeditationImpl(
       url: null == url
@@ -152,6 +161,10 @@ class __$$MeditationImplCopyWithImpl<$Res>
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as Duration,
+      elements: null == elements
+          ? _value._elements
+          : elements // ignore: cast_nullable_to_non_nullable
+              as List<MeditationElements>,
     ));
   }
 }
@@ -164,7 +177,9 @@ class _$MeditationImpl implements _Meditation {
       required this.title,
       required this.artist,
       required this.imagePath,
-      required this.duration});
+      required this.duration,
+      required final List<MeditationElements> elements})
+      : _elements = elements;
 
   factory _$MeditationImpl.fromJson(Map<String, dynamic> json) =>
       _$$MeditationImplFromJson(json);
@@ -179,10 +194,17 @@ class _$MeditationImpl implements _Meditation {
   final String imagePath;
   @override
   final Duration duration;
+  final List<MeditationElements> _elements;
+  @override
+  List<MeditationElements> get elements {
+    if (_elements is EqualUnmodifiableListView) return _elements;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_elements);
+  }
 
   @override
   String toString() {
-    return 'Meditation(url: $url, title: $title, artist: $artist, imagePath: $imagePath, duration: $duration)';
+    return 'Meditation(url: $url, title: $title, artist: $artist, imagePath: $imagePath, duration: $duration, elements: $elements)';
   }
 
   @override
@@ -196,13 +218,14 @@ class _$MeditationImpl implements _Meditation {
             (identical(other.imagePath, imagePath) ||
                 other.imagePath == imagePath) &&
             (identical(other.duration, duration) ||
-                other.duration == duration));
+                other.duration == duration) &&
+            const DeepCollectionEquality().equals(other._elements, _elements));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, url, title, artist, imagePath, duration);
+  int get hashCode => Object.hash(runtimeType, url, title, artist, imagePath,
+      duration, const DeepCollectionEquality().hash(_elements));
 
   /// Create a copy of Meditation
   /// with the given fields replaced by the non-null parameter values.
@@ -226,7 +249,8 @@ abstract class _Meditation implements Meditation {
       required final String title,
       required final String artist,
       required final String imagePath,
-      required final Duration duration}) = _$MeditationImpl;
+      required final Duration duration,
+      required final List<MeditationElements> elements}) = _$MeditationImpl;
 
   factory _Meditation.fromJson(Map<String, dynamic> json) =
       _$MeditationImpl.fromJson;
@@ -241,6 +265,8 @@ abstract class _Meditation implements Meditation {
   String get imagePath;
   @override
   Duration get duration;
+  @override
+  List<MeditationElements> get elements;
 
   /// Create a copy of Meditation
   /// with the given fields replaced by the non-null parameter values.

@@ -13,6 +13,9 @@ _$MeditationImpl _$$MeditationImplFromJson(Map<String, dynamic> json) =>
       artist: json['artist'] as String,
       imagePath: json['imagePath'] as String,
       duration: Duration(microseconds: (json['duration'] as num).toInt()),
+      elements: (json['elements'] as List<dynamic>)
+          .map((e) => $enumDecode(_$MeditationElementsEnumMap, e))
+          .toList(),
     );
 
 Map<String, dynamic> _$$MeditationImplToJson(_$MeditationImpl instance) =>
@@ -22,4 +25,13 @@ Map<String, dynamic> _$$MeditationImplToJson(_$MeditationImpl instance) =>
       'artist': instance.artist,
       'imagePath': instance.imagePath,
       'duration': instance.duration.inMicroseconds,
+      'elements': instance.elements
+          .map((e) => _$MeditationElementsEnumMap[e]!)
+          .toList(),
     };
+
+const _$MeditationElementsEnumMap = {
+  MeditationElements.visualisation: 'visualisation',
+  MeditationElements.breathing: 'breathing',
+  MeditationElements.bodyScan: 'bodyScan',
+};
