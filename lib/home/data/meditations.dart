@@ -11,6 +11,14 @@ const categories = [
   focus,
 ];
 
+final allMeditations = [
+  ...sleep.meditations,
+  ...meditationsMindfulness.meditations,
+  ...meditationsRelax.meditations,
+  ...meditationsPositivity.meditations,
+  ...focus.meditations,
+];
+
 const sleep = MeditationOverviewData(
   title: 'Schlafen',
   meditations: [

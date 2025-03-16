@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meditation/shared/domain/meditation.dart';
 import 'package:meditation/shared/presentation/custom_sizes.dart';
+import 'package:meditation/shared/presentation/meditation_element_badge.dart';
 import 'package:meditation/shared/routing/route_names.dart';
 
 class MeditationTile extends StatelessWidget {
@@ -58,23 +59,7 @@ class MeditationTile extends StatelessWidget {
                         spacing: CustomSizes.smallSize,
                         children: [
                           for (final element in meditation.elements)
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 8,
-                                vertical: 4,
-                              ),
-                              decoration: BoxDecoration(
-                                color: element.color,
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              child: Text(
-                                element.title,
-                                style: const TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ),
+                            MeditationElementBadge(element: element),
                         ],
                       ),
                     ),
