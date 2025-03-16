@@ -205,44 +205,8 @@ const meditationsPositivity = MeditationOverviewData(
       title: 'Metta/ Mantra Meditation',
       artist: 'MBSR Köln',
       imagePath: AssetPaths.backgroundRiver,
-      duration: Duration(minutes: 13),
-      elements: [],
-    ),
-    Meditation(
-      url:
-          'https://yabonn.de/wp-content/uploads/2020/04/MitgefuehlFuerSichSelbst.mp3',
-      title: 'Mitgefühl mit sich Selbst',
-      artist: 'Yoga und Achtsamkeit in Bonn',
-      imagePath: AssetPaths.backgroundRiver,
-      duration: Duration(minutes: 15),
-      elements: [],
-    ),
-    Meditation(
-      url:
-          'https://yabonn.de/wp-content/uploads/2020/04/MeditationZuDankbarkeit.mp3',
-      title: 'Dankbarkeit',
-      artist: 'Yoga und Achtsamkeit in Bonn',
-      imagePath: AssetPaths.backgroundRiver,
-      duration: Duration(minutes: 18),
-      elements: [],
-    ),
-    Meditation(
-      url:
-          'https://yabonn.de/wp-content/uploads/2020/04/MitgefuehlFuerAndere.mp3',
-      title: 'Mitgefühl für Andere',
-      artist: 'Yoga und Achtsamkeit in Bonn',
-      imagePath: AssetPaths.backgroundRiver,
-      elements: [],
-      duration: Duration(minutes: 20),
-    ),
-    Meditation(
-      url:
-          'https://yabonn.de/wp-content/uploads/2020/04/MitgefuehlFuerSichSelbst.mp3',
-      title: 'Mitgefühl mit sich Selbst',
-      artist: 'Yoga und Achtsamkeit in Bonn',
-      imagePath: AssetPaths.backgroundRiver,
-      elements: [],
-      duration: Duration(minutes: 15),
+      duration: Duration(minutes: 13, seconds: 3),
+      elements: [MeditationElements.positivity],
     ),
     Meditation(
       url: AssetPaths.meditationSelfLove,
