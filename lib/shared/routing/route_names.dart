@@ -5,6 +5,7 @@ class RoutePaths {
       '${RouteNames.home}${RouteNames.meditationOverview}/${RouteNames.audioPlayer}';
   static const meditationOverview =
       '${RouteNames.home}${RouteNames.meditationOverview}';
+  static const search = RouteNames.search;
 }
 
 class RouteNames {
@@ -12,4 +13,5 @@ class RouteNames {
   static const breathingGame = 'breathingGame';
   static const audioPlayer = 'audioPlayer';
   static const meditationOverview = 'meditationOverview';
+  static const search = '/search';
 }
